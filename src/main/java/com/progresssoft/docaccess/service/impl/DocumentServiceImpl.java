@@ -95,7 +95,6 @@ public class DocumentServiceImpl implements DocumentService {
                         request.permission()
                 )
                 .stream()
-                .map(Document::getId)
                 .toList();
 
         return new BatchAccessResponse(accessibleIds);
