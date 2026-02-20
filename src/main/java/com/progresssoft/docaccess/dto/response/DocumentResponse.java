@@ -1,4 +1,6 @@
-package com.progresssoft.docaccess.dto;
+package com.progresssoft.docaccess.dto.response;
+
+import com.progresssoft.docaccess.dto.request.AccessibleUsersRequest;
 
 import java.util.List;
 import java.util.UUID;

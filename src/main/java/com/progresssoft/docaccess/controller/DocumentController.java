@@ -1,6 +1,10 @@
 package com.progresssoft.docaccess.controller;
 
-import com.progresssoft.docaccess.dto.*;
+import com.progresssoft.docaccess.dto.request.BatchAccessRequest;
+import com.progresssoft.docaccess.dto.request.CreateDocumentRequest;
+import com.progresssoft.docaccess.dto.request.GrantPermissionRequest;
+import com.progresssoft.docaccess.dto.response.BatchAccessResponse;
+import com.progresssoft.docaccess.dto.response.DocumentResponse;
 import com.progresssoft.docaccess.service.DocumentAccessService;
 import com.progresssoft.docaccess.service.DocumentService;
 import jakarta.validation.Valid;

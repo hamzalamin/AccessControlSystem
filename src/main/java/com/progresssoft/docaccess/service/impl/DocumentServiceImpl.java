@@ -1,9 +1,9 @@
 package com.progresssoft.docaccess.service.impl;
 
-import com.progresssoft.docaccess.dto.BatchAccessRequest;
-import com.progresssoft.docaccess.dto.BatchAccessResponse;
-import com.progresssoft.docaccess.dto.CreateDocumentRequest;
-import com.progresssoft.docaccess.dto.DocumentResponse;
+import com.progresssoft.docaccess.dto.request.BatchAccessRequest;
+import com.progresssoft.docaccess.dto.response.BatchAccessResponse;
+import com.progresssoft.docaccess.dto.request.CreateDocumentRequest;
+import com.progresssoft.docaccess.dto.response.DocumentResponse;
 import com.progresssoft.docaccess.entity.Document;
 import com.progresssoft.docaccess.enums.Permission;
 import com.progresssoft.docaccess.exception.AccessDeniedException;

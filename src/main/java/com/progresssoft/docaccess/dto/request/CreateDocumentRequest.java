@@ -1,4 +1,4 @@
-package com.progresssoft.docaccess.dto;
+package com.progresssoft.docaccess.dto.request;
 
 
 import jakarta.validation.constraints.NotBlank;

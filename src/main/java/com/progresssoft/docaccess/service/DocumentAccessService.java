@@ -1,6 +1,6 @@
 package com.progresssoft.docaccess.service;
 
-import com.progresssoft.docaccess.dto.GrantPermissionRequest;
+import com.progresssoft.docaccess.dto.request.GrantPermissionRequest;
 
 import java.util.UUID;
 

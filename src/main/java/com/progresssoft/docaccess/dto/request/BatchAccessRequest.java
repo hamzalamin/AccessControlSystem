@@ -1,4 +1,4 @@
-package com.progresssoft.docaccess.dto;
+package com.progresssoft.docaccess.dto.request;
 
 import com.progresssoft.docaccess.enums.Permission;
 import jakarta.validation.constraints.NotEmpty;

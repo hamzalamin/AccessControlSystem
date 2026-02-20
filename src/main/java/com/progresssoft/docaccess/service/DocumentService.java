@@ -1,9 +1,9 @@
 package com.progresssoft.docaccess.service;
 
-import com.progresssoft.docaccess.dto.BatchAccessRequest;
-import com.progresssoft.docaccess.dto.BatchAccessResponse;
-import com.progresssoft.docaccess.dto.CreateDocumentRequest;
-import com.progresssoft.docaccess.dto.DocumentResponse;
+import com.progresssoft.docaccess.dto.request.BatchAccessRequest;
+import com.progresssoft.docaccess.dto.response.BatchAccessResponse;
+import com.progresssoft.docaccess.dto.request.CreateDocumentRequest;
+import com.progresssoft.docaccess.dto.response.DocumentResponse;
 
 import java.util.List;
 import java.util.UUID;

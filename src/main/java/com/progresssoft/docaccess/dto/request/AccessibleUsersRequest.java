@@ -1,14 +1,14 @@
-package com.progresssoft.docaccess.dto;
+package com.progresssoft.docaccess.dto.request;
+
 
 import com.progresssoft.docaccess.enums.Permission;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record GrantPermissionRequest(
-
-        @NotBlank(message = "Username is required")
+public record AccessibleUsersRequest(
+        @NotBlank
         String username,
-
-        @NotNull(message = "Permission is required")
+        @NotNull
         Permission permission
-) {}
+) {
+}

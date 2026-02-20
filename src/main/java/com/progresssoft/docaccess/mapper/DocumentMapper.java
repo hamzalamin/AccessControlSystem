@@ -1,8 +1,8 @@
 package com.progresssoft.docaccess.mapper;
 
-import com.progresssoft.docaccess.dto.AccessibleUsersRequest;
-import com.progresssoft.docaccess.dto.CreateDocumentRequest;
-import com.progresssoft.docaccess.dto.DocumentResponse;
+import com.progresssoft.docaccess.dto.request.AccessibleUsersRequest;
+import com.progresssoft.docaccess.dto.request.CreateDocumentRequest;
+import com.progresssoft.docaccess.dto.response.DocumentResponse;
 import com.progresssoft.docaccess.entity.Document;
 import com.progresssoft.docaccess.entity.DocumentAccess;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
 package com.progresssoft.docaccess.service.impl;
 
-import com.progresssoft.docaccess.dto.GrantPermissionRequest;
+import com.progresssoft.docaccess.dto.request.GrantPermissionRequest;
 import com.progresssoft.docaccess.entity.Document;
 import com.progresssoft.docaccess.entity.DocumentAccess;
 import com.progresssoft.docaccess.exception.AccessDeniedException;
