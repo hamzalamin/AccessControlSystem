@@ -24,12 +24,16 @@ public class DocumentMapper {
     }
 
     public Document toEntity(CreateDocumentRequest request, String createdBy) {
-        return Document.builder()
+        Document document = Document.builder()
                 .name(request.name())
                 .content(request.content())
                 .fileType(request.fileType())
                 .createdBy(createdBy)
                 .build();
+
+        document.setAccessList(toDocumentAccessList(request.accessibleUsers(), document));
+
+        return document;
     }
 
     public List<DocumentResponse> toResponseList(List<Document> documents) {
@@ -43,6 +47,20 @@ public class DocumentMapper {
                 access.getUsername(),
                 access.getPermission()
         );
+    }
+
+    private List<DocumentAccess> toDocumentAccessList(List<AccessibleUsersRequest> accessibleUsers, Document document) {
+        return accessibleUsers.stream()
+                .map(accessibleUsersRequest -> toDocumentAccess(accessibleUsersRequest, document))
+                .toList();
+    }
+
+    private DocumentAccess toDocumentAccess(AccessibleUsersRequest request, Document document) {
+        return DocumentAccess.builder()
+                .permission(request.permission())
+                .username(request.username())
+                .document(document)
+                .build();
     }
 
     private List<AccessibleUsersRequest> toAccessibleUsersList(List<DocumentAccess> accessList) {
