@@ -49,12 +49,7 @@ public class DocumentServiceImpl implements DocumentService {
             return documentMapper.toResponseList(documentRepository.findAll());
         }
 
-        return documentMapper.toResponseList(
-                documentRepository.findAllAccessibleByUsername(
-                        UserContextHolder.getCurrentUser(),
-                        Permission.READ
-                )
-        );
+        return documentMapper.toResponseList(documentRepository.findAllWithAccessList());
     }
 
     @Override
@@ -93,10 +88,7 @@ public class DocumentServiceImpl implements DocumentService {
                         request.documentIds(),
                         UserContextHolder.getCurrentUser(),
                         request.permission()
-                )
-                .stream()
-                .toList();
-
+                );
         return new BatchAccessResponse(accessibleIds);
     }
 

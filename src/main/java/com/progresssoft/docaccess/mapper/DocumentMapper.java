@@ -7,6 +7,7 @@ import com.progresssoft.docaccess.entity.Document;
 import com.progresssoft.docaccess.entity.DocumentAccess;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class DocumentMapper {
                 .content(request.content())
                 .fileType(request.fileType())
                 .createdBy(createdBy)
+                .accessList(new ArrayList<>())
                 .build();
 
         document.setAccessList(toDocumentAccessList(request.accessibleUsers(), document));
@@ -50,6 +52,9 @@ public class DocumentMapper {
     }
 
     private List<DocumentAccess> toDocumentAccessList(List<AccessibleUsersRequest> accessibleUsers, Document document) {
+        if (accessibleUsers == null || accessibleUsers.isEmpty()) {
+            return new ArrayList<>();
+        }
         return accessibleUsers.stream()
                 .map(accessibleUsersRequest -> toDocumentAccess(accessibleUsersRequest, document))
                 .toList();

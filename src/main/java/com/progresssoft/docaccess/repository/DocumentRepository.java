@@ -34,4 +34,10 @@ public interface DocumentRepository extends JpaRepository<Document, UUID> {
             @Param("username") String username,
             @Param("permission") Permission permission
     );
+
+    @Query("""
+    SELECT DISTINCT d FROM Document d
+    LEFT JOIN FETCH d.accessList
+""")
+    List<Document> findAllWithAccessList();
 }
