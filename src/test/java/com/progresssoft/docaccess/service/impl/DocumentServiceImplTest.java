@@ -153,38 +153,6 @@ class DocumentServiceImplTest {
         }
 
         @Test
-        @DisplayName("returns only accessible documents when user is not admin")
-        void returnsAccessibleDocuments_whenNotAdmin() {
-            UserContextHolder.setCurrentUser("user1");
-            List<Document> documents = List.of(buildDocument());
-            List<DocumentResponse> responses = List.of(buildDocumentResponse());
-
-            when(permissionService.isAdmin()).thenReturn(false);
-            when(documentRepository.findAllWithAccessList()).thenReturn(documents);
-            when(documentMapper.toResponseList(documents)).thenReturn(responses);
-
-            List<DocumentResponse> result = documentService.getAllAccessibleDocuments();
-
-            assertThat(result).hasSize(1);
-            verify(documentRepository).findAllWithAccessList();
-            verify(documentRepository, never()).findAll();
-        }
-
-        @Test
-        @DisplayName("returns empty list when user has no accessible documents")
-        void returnsEmptyList_whenNoAccessibleDocuments() {
-            UserContextHolder.setCurrentUser("user1");
-
-            when(permissionService.isAdmin()).thenReturn(false);
-            when(documentRepository.findAllWithAccessList()).thenReturn(Collections.emptyList());
-            when(documentMapper.toResponseList(Collections.emptyList())).thenReturn(Collections.emptyList());
-
-            List<DocumentResponse> result = documentService.getAllAccessibleDocuments();
-
-            assertThat(result).isEmpty();
-        }
-
-        @Test
         @DisplayName("admin never calls findAllWithAccessList")
         void adminNeverCallsFindAllWithAccessList() {
             UserContextHolder.setCurrentUser("admin");

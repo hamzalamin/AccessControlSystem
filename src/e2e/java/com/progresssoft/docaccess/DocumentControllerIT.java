@@ -21,7 +21,7 @@ import java.util.UUID;
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @DisplayName("Document Controller Integration Tests")
-public class DocumentControllerIT {
+public class DocumentControllerIT extends AbstractIT {
 
     @Autowired private MockMvcTester mvc;
     @Autowired private ObjectMapper objectMapper;
