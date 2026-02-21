@@ -51,8 +51,7 @@ public class DocumentControllerIT extends AbstractIT {
                 .content(request)
                 .exchange();
 
-        documentId = new ObjectMapper()
-                .readTree(response.getResponse().getContentAsString())
+        documentId = objectMapper.readTree(response.getResponse().getContentAsString())
                 .get("id")
                 .asText();
     }
