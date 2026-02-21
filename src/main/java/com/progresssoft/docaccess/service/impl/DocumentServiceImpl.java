@@ -49,7 +49,12 @@ public class DocumentServiceImpl implements DocumentService {
             return documentMapper.toResponseList(documentRepository.findAll());
         }
 
-        return documentMapper.toResponseList(documentRepository.findAllWithAccessList());
+        return documentMapper.toResponseList(
+                documentRepository.findAllAccessibleByUsername(
+                        UserContextHolder.getCurrentUser(),
+                        Permission.READ
+                )
+        );
     }
 
     @Override
