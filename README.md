@@ -38,19 +38,37 @@ Every request must include an `X-User` header identifying the requester.
 
 ## Running Locally
 
-**Prerequisites:** Java 21, Docker, PostgreSQL
+**Prerequisites:** Java 21, Docker
 
 ```bash
 # clone the repo
 git clone https://github.com/hamzalamin/AccessControlSystem
 cd AccessControlSystem
 
-# configure your database in
-src/main/resources/application.yml
+# copy and configure environment variables
+cp .env.example .env
 
-# run the app
-./mvnw spring-boot:run
+# start everything
+make run
+
+# follow logs
+make logs
 ```
+
+---
+
+## Make Commands
+
+| Command | Description |
+|---------|-------------|
+| `make build` | Build the application image |
+| `make run` | Start all services |
+| `make stop` | Stop all services |
+| `make restart` | Restart all services |
+| `make logs` | Follow application logs |
+| `make clean` | Stop and remove containers and volumes |
+| `make test` | Run unit tests |
+| `make verify` | Run E2E tests (requires Docker) |
 
 ---
 
@@ -58,10 +76,10 @@ src/main/resources/application.yml
 
 ```bash
 # unit tests
-./mvnw test
+make test
 
 # E2E tests (requires Docker)
-./mvnw verify
+make verify
 ```
 
 E2E tests spin up a real PostgreSQL container automatically via Testcontainers.
@@ -91,7 +109,7 @@ src/
 
 ```bash
 # Create a document
-curl -X POST http://localhost:8080/documents \
+curl -X POST http://localhost:8081/documents \
   -H "X-User: admin" \
   -H "Content-Type: application/json" \
   -d '{
